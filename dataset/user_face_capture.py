@@ -17,7 +17,7 @@ def save_face_image(output_dir, face, count, size=(92, 112)):
 
 
 # 检测人脸并保存
-def capture_and_save_faces(output_dir, haar_cascade_path, num_images=10, camera_index=0):
+def capture_and_save_faces(output_dir, haar_cascade_path, num_images=100, camera_index=0):
     # 创建 Haar 级联分类器
     face_cascade = cv2.CascadeClassifier(haar_cascade_path)
     cap = cv2.VideoCapture(camera_index)
@@ -43,7 +43,7 @@ def capture_and_save_faces(output_dir, haar_cascade_path, num_images=10, camera_
 
             # 显示当前图像和检测结果
             cv2.imshow('Capturing Faces', frame)
-            cv2.waitKey(100)
+            cv2.waitKey(1000)
 
         # 按下 'q' 键退出
         if cv2.waitKey(1) & 0xFF == ord('q'):
@@ -61,7 +61,7 @@ def capture_and_save_faces(output_dir, haar_cascade_path, num_images=10, camera_
 if __name__ == "__main__":
     OUTPUT_DIR = "user"  # 存储人脸图片的文件夹
     HAAR_CASCADE_PATH = r"D:\Program Files\Python38\Lib\site-packages\cv2\data\haarcascade_frontalface_alt2.xml"  # Haar 分类器路径
-    NUM_IMAGES = 10  # 要拍摄的图片数量
+    NUM_IMAGES = 100  # 要拍摄的图片数量
 
     # 调用函数，开始捕捉并保存人脸
     capture_and_save_faces(OUTPUT_DIR, HAAR_CASCADE_PATH, NUM_IMAGES)
