@@ -7,7 +7,7 @@ def create_csv(base_path, output_path):
                 if file.endswith(".pgm"):
                     label = os.path.basename(root)
                     img_path = os.path.join(root, file)
-                    f.write(f"{img_path},{label}\n")
+                    f.write(f"{img_path},{label},{0 if label[0]=='s' else 1}\n")
 
 if __name__ == "__main__":
     BASE_PATH = "dataset"
